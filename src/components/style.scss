@@ -5,6 +5,15 @@
   right: 0;
   background: #000;
   opacity: 0.8;
-  user-select:none;
   position: fixed;
+  z-index: 1;
+
+  &,
+  &[data-visible=false]{
+    display: none;
+  }
+
+  &[data-visible=true]{
+    display: block;
+  }
 }

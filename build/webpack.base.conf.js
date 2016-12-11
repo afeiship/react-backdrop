@@ -1,4 +1,5 @@
 var path = require('path')
+var webpack = require('webpack')
 var config = require('../config')
 var utils = require('./utils')
 var env = process.env.NODE_ENV;
@@ -34,6 +35,12 @@ module.exports = {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   externals: externals,
+  plugins:[
+    new webpack.ProvidePlugin({
+        'React': 'react',
+        'ReactDOM': 'react-dom'
+    }),
+  ],
   module: {
     loaders: [{
       test: /\.js$/,
