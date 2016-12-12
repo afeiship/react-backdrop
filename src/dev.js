@@ -18,7 +18,11 @@ class App extends React.Component{
 
   _click2(name){
     this.state.backVisible=true;
-    console.log(this.state);
+    this.setState(this.state);
+  }
+
+  _back2_click(){
+    this.state.backVisible=false;
     this.setState(this.state);
   }
 
@@ -27,7 +31,7 @@ class App extends React.Component{
       <div className="demo">
         <button onClick={this._click.bind(this,'btn')}>ClickMe</button>
         <button onClick={this._click2.bind(this,'btn2')}>Inlinke Backdrop</button>
-        <Backdrop visible={this.state.backVisible} />
+        <Backdrop onClick={this._back2_click.bind(this)} visible={this.state.backVisible} />
       </div>
     );
   }
