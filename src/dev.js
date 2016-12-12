@@ -1,21 +1,21 @@
-import ReactBackdrop from './main';
+import {BackdropController} from './main';
 
 class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={
-      visible:props.visible
-    }
+  componentWillMount(){
+    this._backdrop = BackdropController.getInstance({
+      onClick:function(){
+        BackdropController.hide();
+      }
+    });
   }
+  
   _click(name){
-    this.setState({
-      visible:name =='btn'
-    })
+    BackdropController.show();
   }
+
   render(){
     return (
       <div className="demo">
-        <ReactBackdrop onClick={this._click.bind(this,'drop')} visible={this.state.visible} />
         <button onClick={this._click.bind(this,'btn')}>ClickMe</button>
       </div>
     );
@@ -23,6 +23,6 @@ class App extends React.Component{
 }
 
 ReactDOM.render(
-    <App cssClass="test-bg" visible={false} />,
+    <App cssClass="test-bg" />,
     document.getElementById('app')
 );

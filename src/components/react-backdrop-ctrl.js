@@ -1,8 +1,8 @@
-
 import Backdrop from 'components/react-backdrop';
 
 let instance;
-export class BackdropController {
+
+export default class BackdropCtrl {
   static getInstance(inProps) {
     instance = instance || Backdrop.newInstance(inProps);
     return instance;
@@ -14,9 +14,3 @@ export class BackdropController {
     instance.component.hide();
   }
 }
-
-export default Backdrop;
-// export default class extends React.Component{
-//   static show(){}
-//   static hide(){}
-// }
