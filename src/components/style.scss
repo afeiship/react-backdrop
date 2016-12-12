@@ -5,8 +5,7 @@
   right: 0;
   background: #000;
   opacity: 0.3;
-  position: fixed;
-  z-index: 1;
+  position: absolute;
   transition: opacity 0.3s linear,z-index 0.4s linear;
 
   &[data-visible=false]{

@@ -4,8 +4,8 @@ class App extends React.Component{
   state={
     backVisible:false
   }
+  
   componentWillMount(){
-    console.log(BackdropCtrl);
     this._backdrop = BackdropCtrl.getInstance({
       onClick:function(){
         BackdropCtrl.hide();

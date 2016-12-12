@@ -11,7 +11,8 @@ class Backdrop extends React.Component{
 
   static defaultProps = {
     visible:false,
-    cssClass:''
+    cssClass:'',
+    style:{}
   }
 
   static newInstance(inProps){
