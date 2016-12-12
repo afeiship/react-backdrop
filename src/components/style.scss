@@ -9,11 +9,13 @@
   transition: opacity 0.3s linear,z-index 0.4s linear;
 
   &[data-visible=false]{
+    position: absolute;
     opacity: 0;
     z-index:-1;
   }
 
   &[data-visible=true]{
+    position: fixed;
     opacity: 0.3;
     z-index:1;
   }
