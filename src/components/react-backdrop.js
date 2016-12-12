@@ -1,5 +1,6 @@
 import './style.scss';
 import appendToDocument from 'react-append-to-document';
+import classNames from 'classnames';
 
 class Backdrop extends React.Component{
   static propTypes = {

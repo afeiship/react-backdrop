@@ -36,12 +36,10 @@ module.exports = {
   },
   externals: externals,
   plugins:[
-    new webpack.IgnorePlugin(/^react$/),
-    new webpack.IgnorePlugin(/^react-dom$/),
     new webpack.ProvidePlugin({
-        'React': 'react',
-        'ReactDOM': 'react-dom'
-    }),
+      'React': 'react',
+      'ReactDOM': 'react-dom'
+    })
   ],
   module: {
     loaders: [{
@@ -65,7 +63,7 @@ module.exports = {
       loader: 'html-loader'
     }, {
       test: /\.js|jsx$/,
-      loaders: ["react-hot-loader/webpack",'babel-loader?presets[]=react,presets[]=es2015'],
+      loaders: ["react-hot-loader/webpack"],
       include: path.join(__dirname, 'js')
     }]
   }
