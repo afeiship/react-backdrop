@@ -1,19 +1,20 @@
-import Backdrop,{BackdropController} from './main';
+import {Backdrop,BackdropCtrl} from './main';
 
 class App extends React.Component{
   state={
     backVisible:false
   }
   componentWillMount(){
-    this._backdrop = BackdropController.getInstance({
+    console.log(BackdropCtrl);
+    this._backdrop = BackdropCtrl.getInstance({
       onClick:function(){
-        BackdropController.hide();
+        BackdropCtrl.hide();
       }
     });
   }
 
   _click(name){
-    BackdropController.show();
+    BackdropCtrl.show();
   }
 
   _click2(name){
