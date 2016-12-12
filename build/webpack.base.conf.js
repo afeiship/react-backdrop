@@ -36,6 +36,8 @@ module.exports = {
   },
   externals: externals,
   plugins:[
+    new webpack.IgnorePlugin(/^react$/),
+    new webpack.IgnorePlugin(/^react-dom$/),
     new webpack.ProvidePlugin({
         'React': 'react',
         'ReactDOM': 'react-dom'
