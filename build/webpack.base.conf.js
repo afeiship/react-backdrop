@@ -12,7 +12,6 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var externals = process.env.NODE_ENV === 'production' ? {
   react: 'React',
-  classnames:'classnames',
   'react-dom': 'ReactDOM'
 } : {};
 
