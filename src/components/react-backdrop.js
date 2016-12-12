@@ -27,6 +27,12 @@ class Backdrop extends React.Component{
     };
   }
 
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      visible: nextProps.visible
+    })
+  }
+
   show(){
     this.state.visible = true;
     this.setState(this.state);
