@@ -1,5 +1,4 @@
 import './style.scss';
-import classNames from 'classnames';
 import appendToDocument from 'react-append-to-document';
 
 class Backdrop extends React.Component{

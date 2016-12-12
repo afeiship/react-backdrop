@@ -17,6 +17,9 @@ var webpackConfig = Object.assign({}, base)
 
 webpackConfig.devtool = '#source-map'
 webpackConfig.plugins = (webpackConfig.plugins || []).concat([
+  new webpack.IgnorePlugin(/^classnames$/),
+  new webpack.IgnorePlugin(/^react$/),
+  new webpack.IgnorePlugin(/^react-dom$/),
   new webpack.DefinePlugin({
     'process.env': {
       NODE_ENV: '"production"'
