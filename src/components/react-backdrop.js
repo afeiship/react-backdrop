@@ -45,7 +45,4 @@ class Backdrop extends React.Component{
   }
 }
 
-
-console.dir(Backdrop);
-
 export default Backdrop;
