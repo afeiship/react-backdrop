@@ -1,10 +1,10 @@
 import {Backdrop,BackdropCtrl} from './main';
-
+import './dev.scss';
 class App extends React.Component{
   state={
     backVisible:false
   }
-  
+
   componentWillMount(){
     this._backdrop = BackdropCtrl.getInstance({
       onClick:function(){
@@ -29,7 +29,7 @@ class App extends React.Component{
 
   render(){
     return (
-      <div className="demo">
+      <div className="hello-backdrop">
         <button onClick={this._click.bind(this,'btn')}>ClickMe</button>
         <button onClick={this._click2.bind(this,'btn2')}>Inlinke Backdrop</button>
         <Backdrop onClick={this._back2_click.bind(this)} visible={this.state.backVisible} />

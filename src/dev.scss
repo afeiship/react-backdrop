@@ -1,0 +1,23 @@
+*{margin:0;padding:0}
+.hello-backdrop{
+  padding:100px 20px;
+  position: relative;
+  button{
+    background: #3cc51f;
+    width:100%;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    color:#FFF;
+    padding:10px;
+    border: none;
+
+    &:active{
+      background: darken(#3cc51f,10%);
+    }
+
+    &:focus{
+      outline: none;
+    }
+  }
+}
