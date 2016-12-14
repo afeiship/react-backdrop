@@ -14,7 +14,7 @@
 
   &[data-visible=false]{
     position: absolute;
-    opacity: 0;
+    opacity: 0!important;
   }
 
   &[data-visible=true]{
