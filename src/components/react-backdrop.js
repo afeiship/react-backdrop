@@ -24,7 +24,8 @@ class Backdrop extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      visible:props.visible
+      visible:props.visible,
+      animating:false
     };
   }
 
@@ -35,19 +36,48 @@ class Backdrop extends React.Component{
   }
 
   show(){
-    this.state.visible = true;
-    this.setState(this.state);
+    var self=this;
+    this.setState({
+      animating:true
+    });
+
+    setTimeout(function(){
+      self.setState({
+        visible:true
+      });
+    })
   }
 
   hide(){
-    this.state.visible = false;
-    this.setState(this.state);
+    var self=this;
+    this.setState({
+      animating:true
+    });
+
+    setTimeout(function(){
+      self.setState({
+        visible:false
+      });
+    })
   }
 
+  _onTransitionEnd(){
+    this.setState({
+      animating:false
+    });
+  }
+
+  //hidden: 没有动画，visible= false;
+  //无hidden: visible:true
+
+
   render(){
-    return (<div onClick={this.props.onClick}
+    return (<div
+      onClick={this.props.onClick}
       style={this.props.style}
+      hidden={!this.state.visible && !this.state.animating}
       data-visible={this.state.visible}
+      onTransitionEnd={this._onTransitionEnd.bind(this)}
       className={classNames('react-backdrop',this.props.cssClass)}></div>);
   }
 }
