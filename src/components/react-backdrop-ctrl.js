@@ -3,7 +3,7 @@ import Backdrop from 'components/react-backdrop';
 let instance;
 
 export default class BackdropCtrl {
-  static getInstance(inProps) {
+  static createInstance(inProps) {
     instance = instance || Backdrop.newInstance(inProps);
     return instance;
   }

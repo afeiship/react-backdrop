@@ -6,7 +6,7 @@ class App extends React.Component{
   }
 
   componentWillMount(){
-    this._backdrop = BackdropCtrl.getInstance({
+    this._backdrop = BackdropCtrl.createInstance({
       onClick:function(){
         BackdropCtrl.hide();
       }
