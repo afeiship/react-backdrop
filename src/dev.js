@@ -1,4 +1,4 @@
-import {Backdrop,BackdropCtrl} from './main';
+import {ReactBackdrop,ReactBackdropCtrl} from './main';
 import './dev.scss';
 class App extends React.Component{
   state={
@@ -6,15 +6,15 @@ class App extends React.Component{
   }
 
   componentWillMount(){
-    this._backdrop = BackdropCtrl.createInstance({
+    this._backdrop = ReactBackdropCtrl.createInstance({
       onClick:function(){
-        BackdropCtrl.hide();
+        ReactBackdropCtrl.hide();
       }
     });
   }
 
   _click(name){
-    BackdropCtrl.show();
+    ReactBackdropCtrl.show();
   }
 
   _click2(name){
@@ -32,7 +32,7 @@ class App extends React.Component{
       <div className="hello-backdrop">
         <button onClick={this._click.bind(this,'btn')}>ClickMe</button>
         <button onClick={this._click2.bind(this,'btn2')}>Inlinke Backdrop</button>
-        <Backdrop onClick={this._back2_click.bind(this)} visible={this.state.backVisible} />
+        <ReactBackdrop onClick={this._back2_click.bind(this)} visible={this.state.backVisible} />
       </div>
     );
   }

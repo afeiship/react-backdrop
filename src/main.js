@@ -1,7 +1,7 @@
-import Backdrop from './components/react-backdrop';
-import BackdropCtrl from './components/react-backdrop-ctrl';
+import ReactBackdrop from './components/react-backdrop';
+import ReactBackdropCtrl from './components/react-backdrop-ctrl';
 
 module.exports = {
-  Backdrop,
-  BackdropCtrl
+  ReactBackdrop,
+  ReactBackdropCtrl
 };
