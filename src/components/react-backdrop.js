@@ -6,7 +6,8 @@ class Backdrop extends React.Component{
   static propTypes = {
     visible:React.PropTypes.bool,
     style:React.PropTypes.object,
-    cssClass:React.PropTypes.string
+    cssClass:React.PropTypes.string,
+    onAnimatingEnd:React.PropTypes.func
   }
 
   static defaultProps = {
@@ -62,6 +63,7 @@ class Backdrop extends React.Component{
     this.setState({
       animating:false
     });
+    this.props.onAnimatingEnd && this.props.onAnimatingEnd(this.state);
   }
 
   //hidden: 没有动画，visible= false;
