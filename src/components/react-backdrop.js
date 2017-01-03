@@ -34,11 +34,15 @@ class Backdrop extends React.Component{
   }
 
   show(){
-    this._setVisible(true);
+    if(!this.state.visible){
+      this._setVisible(true);
+    }
   }
 
   hide(){
-    this._setVisible(false);
+    if(this.state.visible){
+      this._setVisible(false);
+    }
   }
 
   _setVisible(inValue){
