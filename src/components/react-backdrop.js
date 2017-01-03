@@ -1,19 +1,23 @@
 import './style.scss';
 import appendToDocument from 'react-append-to-document';
 import classNames from 'classnames';
+import noop from 'noop';
 
 class Backdrop extends React.Component{
   static propTypes = {
     visible:React.PropTypes.bool,
     style:React.PropTypes.object,
     cssClass:React.PropTypes.string,
-    onAnimatingEnd:React.PropTypes.func
+    onHidden:React.PropTypes.func,
+    onShown:React.PropTypes.func,
   }
 
   static defaultProps = {
     visible:false,
     cssClass:'',
-    style:{}
+    style:{},
+    onHidden:noop,
+    onShown:noop
   }
 
   static newInstance(inProps){
@@ -36,17 +40,17 @@ class Backdrop extends React.Component{
 
   show(){
     if(!this.state.visible){
-      this._setVisible(true);
+      this._setVisible(true,this.props.onShown);
     }
   }
 
   hide(){
     if(this.state.visible){
-      this._setVisible(false);
+      this._setVisible(false,this.props.onHidden);
     }
   }
 
-  _setVisible(inValue){
+  _setVisible(inValue,inCallback){
     var self=this;
     this.setState({
       animating:true
@@ -55,6 +59,8 @@ class Backdrop extends React.Component{
     setTimeout(function(){
       self.setState({
         visible:inValue
+      },()=>{
+        inCallback(self.state);
       });
     });
   }
@@ -63,7 +69,6 @@ class Backdrop extends React.Component{
     this.setState({
       animating:false
     });
-    this.props.onAnimatingEnd && this.props.onAnimatingEnd(this.state);
   }
 
   //hidden: 没有动画，visible= false;
