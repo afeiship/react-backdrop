@@ -18,3 +18,8 @@
 ```html
 <react-backdrop :visible="true" />
 ```
+
+## todos:
+- [ ] props style -> opacity
+- [ ] abstract callback part
+- [ ] remove ctrl static class, stay simple
