@@ -10,6 +10,7 @@ class Backdrop extends React.Component{
     cssClass:React.PropTypes.string,
     onHidden:React.PropTypes.func,
     onShown:React.PropTypes.func,
+    onClick:React.PropTypes.func,
   }
 
   static defaultProps = {
@@ -17,7 +18,8 @@ class Backdrop extends React.Component{
     cssClass:'',
     style:{},
     onHidden:noop,
-    onShown:noop
+    onShown:noop,
+    onClick:noop
   }
 
   static newInstance(inProps){
