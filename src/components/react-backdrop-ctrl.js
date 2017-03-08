@@ -13,4 +13,7 @@ export default class BackdropCtrl {
   static hide(){
     instance.component.hide();
   }
+  static destroy(){
+    instance.destroy();
+  }
 }
