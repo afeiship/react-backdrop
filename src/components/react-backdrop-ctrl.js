@@ -15,5 +15,6 @@ export default class BackdropCtrl {
   }
   static destroy(){
     instance.destroy();
+    instance=null;
   }
 }
