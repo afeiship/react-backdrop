@@ -56,10 +56,8 @@ class Backdrop extends React.Component{
     var self=this;
     this.setState({
       animating:true
-    });
-
-    setTimeout(function(){
-      self.setState({
+    },()=>{
+      this.setState({
         visible:inValue
       },()=>{
         inCallback(self.state);
