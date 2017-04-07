@@ -1,6 +1,9 @@
-#react-backdrop
-> Mint-ui(Vue2.x) widget react-backdrop based on sass &amp; webpack.
+# react-backdrop
+> React backdrop.
 
+## size:
++     react-backdrop.js   8.3 kB
++ react-backdrop.js.map  51.4 kB
 
 ## resource:
 + http://www.cnblogs.com/Kummy/p/4966937.html
@@ -8,15 +11,48 @@
 + https://yarnpkg.com/en/docs/install
 
 
-## props:
-| name | type | value | description |
-| :----| :----| :----| :----|
-| visible  | Boolean | true/false | v-show |
-
+## properties:
+```javascript
+static propTypes = {
+  visible:PropTypes.bool,
+  style:PropTypes.object,
+  className:PropTypes.string,
+  onClick:PropTypes.func,
+}
+```
 
 ## usage:
-```html
-<react-backdrop :visible="true" />
+```jsx
+class App extends React.Component{
+
+  state={
+    backVisible:false
+  }
+
+  componentWillMount(){
+    this._backdrop = ReactBackdropCtrl.createInstance({
+      onClick:function(){
+        ReactBackdropCtrl.hide(()=>{
+          console.log('on hidden..')
+        });
+      }
+    });
+  }
+
+  _click(name){
+    ReactBackdropCtrl.show(function(){
+      console.log('has show...')
+    });
+  }
+
+  render(){
+    return (
+      <div className="hello-backdrop">
+        <button onClick={this._click.bind(this,'btn')}>ClickMe</button>
+      </div>
+    );
+  }
+}
 ```
 
 ## todos:

@@ -1,30 +1,27 @@
 import './style.scss';
+import React,{PureComponent,PropTypes} from 'react';
 import appendToDocument from 'react-append-to-document';
 import classNames from 'classnames';
 import noop from 'noop';
 
-class Backdrop extends React.Component{
+export default class ReactBackdrop extends PureComponent{
   static propTypes = {
-    visible:React.PropTypes.bool,
-    style:React.PropTypes.object,
-    cssClass:React.PropTypes.string,
-    onHidden:React.PropTypes.func,
-    onShown:React.PropTypes.func,
-    onClick:React.PropTypes.func,
+    visible:PropTypes.bool,
+    style:PropTypes.object,
+    className:PropTypes.string,
+    onClick:PropTypes.func,
   }
 
   static defaultProps = {
     visible:false,
-    cssClass:'',
+    className:'',
     style:{},
-    onHidden:noop,
-    onShown:noop,
     onClick:noop
   }
 
   static newInstance(inProps){
-    return appendToDocument(Backdrop,inProps,{
-      className:'backdrop-wrapper'
+    return appendToDocument(ReactBackdrop,inProps,{
+      className:'react-backdrop-container'
     });
   }
 
@@ -32,57 +29,46 @@ class Backdrop extends React.Component{
     super(props);
     this.state = {
       visible:props.visible,
-      animating:false
+      animating:false,
+      hidden:!props.visible
     };
   }
 
-  componentWillReceiveProps(nextProps,nextState){
-    this.setState(nextProps)
-  }
-
-  show(){
-    if(!this.state.visible){
-      this._setVisible(true,this.props.onShown);
-    }
-  }
-
-  hide(){
-    if(this.state.visible){
-      this._setVisible(false,this.props.onHidden);
-    }
-  }
-
-  _setVisible(inValue,inCallback){
-    var self=this;
-    this.setState({
-      animating:true
-    },()=>{
-      this.setState({
-        visible:inValue
-      },()=>{
-        inCallback(self.state);
+  show(inCallback){
+    this.setState({ hidden:false, animating:true, visible:false },()=>{
+      setTimeout(()=>{
+        this.setState({visible:true},inCallback || noop);
       });
     });
   }
 
-  _onTransitionEnd(){
-    this.setState({
-      animating:false
+  hide(inCallback){
+    this.setState({ animating:true },()=>{
+      setTimeout(()=>{
+        this.setState({visible:false}, inCallback || noop );
+      });
     });
   }
 
-  //hidden: 没有动画，visible= false;
-  //无hidden: visible:true
+  _onTransitionEnd = () => {
+    const {visible}  = this.state;
+    this.setState({
+      animating:false
+    },()=>{
+      if(visible == false){
+        this.setState({hidden:true});
+      }
+    });
+  };
 
   render(){
     return (<div
-      style={this.props.style}
-      hidden={!this.state.visible && !this.state.animating}
+      hidden={this.state.hidden}
+      data-animating={this.state.animating}
       data-visible={this.state.visible}
+      style={this.props.style}
       onClick={this.props.onClick}
-      onTransitionEnd={this._onTransitionEnd.bind(this)}
-      className={classNames('react-backdrop',this.props.cssClass)}></div>);
+      className={classNames('react-backdrop',this.props.className)}
+      onTransitionEnd={this._onTransitionEnd}></div>);
   }
 }
-
-export default Backdrop;
