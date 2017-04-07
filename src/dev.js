@@ -9,6 +9,10 @@ class App extends React.Component{
 
   componentWillMount(){
     this._backdrop = ReactBackdropCtrl.createInstance({
+      'data-aaa':'aaa',
+      onTouchStart:function(){
+        console.log('touchstart...');
+      },
       onClick:function(){
         ReactBackdropCtrl.hide(()=>{
           console.log('on hidden..')

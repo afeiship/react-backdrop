@@ -6,20 +6,11 @@
   background: #000;
   opacity: 0.3;
   position: absolute;
-  transition: opacity 0 linear;
+  transition: opacity 0.3s linear;
 
   &[hidden]{
     display: none;
   }
-
-  &[data-animating=true]{
-    transition-duration: 0.3s;
-  }
-
-  &[data-animating=false]{
-    transition-duration: 0;
-  }
-
 
   &[data-visible=false]{
     // position: absolute;
