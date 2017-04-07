@@ -2,8 +2,8 @@
 > React backdrop.
 
 ## size:
-+     react-backdrop.js   8.3 kB
-+ react-backdrop.js.map  51.4 kB
++     react-backdrop.js   7.6 kB
++ react-backdrop.js.map    49 kB
 
 ## resource:
 + http://www.cnblogs.com/Kummy/p/4966937.html

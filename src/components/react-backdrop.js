@@ -1,9 +1,8 @@
 import './style.scss';
-import React,{createElement,PureComponent,PropTypes} from 'react';
+import {PropTypes} from 'react';
 import appendToDocument from 'react-append-to-document';
 import ReactVisible from 'react-visible';
 import classNames from 'classnames';
-import noop from 'noop';
 
 
 export default class ReactBackdrop extends ReactVisible{
