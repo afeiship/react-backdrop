@@ -23,7 +23,7 @@
 
   &[data-visible=false]{
     // position: absolute;
-    opacity: 0.01;
+    opacity: 0.01!important;
   }
 
   &[data-visible=true]{
