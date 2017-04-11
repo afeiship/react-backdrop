@@ -13,4 +13,11 @@ export default class ReactBackdrop extends ReactVisible{
       className:'react-backdrop-container'
     });
   };
+
+  componentWillReceiveProps(nextProps){
+    const visible = nextProps.visible;
+    if(typeof visible === 'boolean'){
+      visible ? this.show() : this.hide();
+    }
+  }
 }

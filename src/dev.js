@@ -28,18 +28,22 @@ class App extends React.Component{
   }
 
   _click1(){
-    this.refs.bk.show();
+    this.setState({
+      bkVisible:!this.state.bkVisible
+    });
   }
 
   render(){
     return (
       <div className="hello-backdrop">
 
-        <button onClick={this._click.bind(this,'btn')}>ClickMe</button>
-        <button onClick={this._click1.bind(this,'btn2')}>ClickMe</button>
+        <button onClick={this._click.bind(this,'btn')}>Show ctrl backdrop</button>
+        <button onClick={this._click1.bind(this,'btn2')}>Toggle inline backdrop</button>
 
         <div className="rel">
-          <ReactBackdrop ref='bk' className="react-backdrop" />
+          <ReactBackdrop onClick={()=>{
+            this.refs.bk.hide();
+          }} ref='bk' visible={this.state.bkVisible} className="react-backdrop" />
         </div>
       </div>
     );
