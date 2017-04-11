@@ -21,4 +21,13 @@
       outline: none;
     }
   }
+
+  .rel{
+    position: relative;
+    width:100px;
+    height:100px;
+    .react-backdrop{
+      background-color: #f00;
+    }
+  }
 }
