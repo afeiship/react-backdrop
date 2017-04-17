@@ -44,7 +44,7 @@ class App extends React.Component{
         <div className="rel">
           <ReactBackdrop onClick={()=>{
             this.refs.bk.hide();
-          }} ref='bk' visible={this.state.bkVisible} className="react-backdrop" />
+          }} ref='bk' visible={this.state.bkVisible} />
         </div>
       </div>
     );

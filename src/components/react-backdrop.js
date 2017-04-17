@@ -13,4 +13,12 @@ export default class ReactBackdrop extends ReactVisible{
       className:'react-backdrop-container'
     });
   };
+
+  render(){
+    const {className,...props} = this.props;
+    const cls = classNames('react-backdrop',className);
+    return (
+      <ReactVisible className={cls} {...props}  />
+    );
+  }
 }
