@@ -4,7 +4,7 @@ import './dev.scss';
 class App extends React.Component{
 
   state={
-    backVisible:false
+    bkVisible:false
   }
 
   componentWillMount(){
@@ -28,6 +28,7 @@ class App extends React.Component{
   }
 
   _click1(){
+    console.log(this.state.bkVisible);
     this.setState({
       bkVisible:!this.state.bkVisible
     });
