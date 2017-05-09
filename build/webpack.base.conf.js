@@ -17,6 +17,7 @@ var externals = process.env.NODE_ENV === 'production' ? {
   'noop': 'noop',
   'react-visible': 'react-visible',
   'object-assign': 'object-assign',
+  'array-from': 'array-from',
   'react-append-to-document': 'react-append-to-document',
 } : {};
 

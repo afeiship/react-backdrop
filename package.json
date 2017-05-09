@@ -31,6 +31,7 @@
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.0.0",
+    "babel-plugin-transform-array-from": "^1.0.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-es2015-spread": "^6.22.0",
@@ -79,6 +80,7 @@
     "npm": ">= 3.0.0"
   },
   "dependencies": {
+    "array-from": "^2.1.1",
     "classnames": "^2.2.5",
     "noop": "github:afeiship/noop",
     "object-assign": "^4.1.1",
