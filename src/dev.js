@@ -1,5 +1,6 @@
-import {ReactBackdropCtrl,ReactBackdrop} from './main';
 import './dev.scss';
+
+import {ReactBackdrop, ReactBackdropCtrl} from './main';
 
 class App extends React.Component{
 
@@ -8,6 +9,7 @@ class App extends React.Component{
   }
 
   componentWillMount(){
+    console.log(1234);
     this._backdrop = ReactBackdropCtrl.createInstance({
       'data-aaa':'aaa',
       onTouchStart:function(){

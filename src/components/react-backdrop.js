@@ -4,13 +4,12 @@ import {PropTypes} from 'react';
 import ReactVisible from 'react-visible';
 import appendToDocument from 'react-append-to-document';
 import classNames from 'classnames';
-import objectAssign from 'object-assign';
 
 export default class ReactBackdrop extends ReactVisible{
   static newInstance(inProps){
     const {className,...props} = inProps;
     const cls = classNames('react-backdrop',className);
-    const options = objectAssign(...inProps,{className:cls});
+    const options = {className:cls,...props};
     return appendToDocument(ReactVisible,options,{
       className:'react-backdrop-container'
     });
