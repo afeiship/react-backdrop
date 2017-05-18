@@ -1,6 +1,6 @@
 import './style.scss';
 
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
 import ReactVisible from 'react-visible';
 import appendToDocument from 'react-append-to-document';
 import classNames from 'classnames';
