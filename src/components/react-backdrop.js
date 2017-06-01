@@ -5,21 +5,24 @@ import ReactVisible from 'react-visible';
 import appendToDocument from 'react-append-to-document';
 import classNames from 'classnames';
 
-export default class ReactBackdrop extends ReactVisible{
-  static newInstance(inProps){
+function getProps(inProps){
     const {className,...props} = inProps;
     const cls = classNames('react-backdrop',className);
-    const options = {className:cls,...props};
-    return appendToDocument(ReactVisible,options,{
+    return {className:cls,...props};
+}
+
+
+export default class ReactBackdrop extends ReactVisible{
+  static newInstance(inProps){
+    return appendToDocument(ReactVisible, getProps(inProps),{
       className:'react-backdrop-container'
     });
   };
 
   render(){
-    const {className,...props} = this.props;
-    const cls = classNames('react-backdrop',className);
+    const props = getProps(this.props);
     return (
-      <ReactVisible className={cls} {...props}  />
+      <ReactVisible {...props}  />
     );
   }
 }
