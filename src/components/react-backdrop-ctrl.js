@@ -7,12 +7,15 @@ export default class ReactBackdropCtrl {
     instance = instance || ReactBackdrop.newInstance(inProps);
     return instance;
   }
+
   static show(inCallback){
     instance.component.show(inCallback);
   }
+
   static hide(inCallback){
     instance.component.hide(inCallback);
   }
+
   static destroy(){
     instance.destroy();
     instance=null;
