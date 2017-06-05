@@ -17,7 +17,9 @@ export default class ReactBackdropCtrl {
   }
 
   static destroy(){
-    instance.destroy();
-    instance=null;
+    if(instance){
+      instance.destroy();
+      instance=null;
+    }
   }
 }
