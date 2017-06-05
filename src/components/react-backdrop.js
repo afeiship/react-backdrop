@@ -11,8 +11,7 @@ function getProps(inProps){
     return {className:cls,...props};
 }
 
-
-export default class ReactBackdrop extends ReactVisible{
+export default class extends ReactVisible{
   static newInstance(inProps){
     return appendToDocument(ReactVisible, getProps(inProps),{
       className:'react-backdrop-container'
