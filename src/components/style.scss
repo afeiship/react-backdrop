@@ -9,7 +9,7 @@
   transition: opacity 0.3s linear;
 
   &[hidden]{
-    display: none;
+    display: none !important;
   }
 
   &[data-visible=false]{
