@@ -15,6 +15,7 @@ var externals = process.env.NODE_ENV === 'production' ? {
   'classnames': 'classnames',
   'react-dom': 'react-dom',
   'noop':'noop',
+  'react-append-to-document':'react-append-to-document',
   'next-return-event':'next-return-event',
   'webkit-sassui-backdrop':'webkit-sassui-backdrop',
   'object-assign':'object-assign',

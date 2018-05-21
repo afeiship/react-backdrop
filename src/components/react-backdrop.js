@@ -4,9 +4,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import noop from 'noop';
 import objectAssign from 'object-assign';
+import { create, append } from 'react-append-to-document';
 import 'next-return-event';
 
-export default class extends Component {
+const CONTAINER_CLASS_NAME = 'react-backdrop-container';
+
+export default class ReactBackdrop extends Component {
   /*===properties start===*/
   static propTypes = {
     className: PropTypes.string,
@@ -14,17 +17,20 @@ export default class extends Component {
     onChange: PropTypes.func,
     position: PropTypes.string,
     color: PropTypes.string,
-    container: PropTypes.object,
   };
 
   static defaultProps = {
     value: false,
     onChange: noop,
     position: 'fixed',
-    color: 'black',
-    container: document.body
+    color: 'black'
   };
   /*===properties end===*/
+
+  static create(inProps) {
+    const element = document.querySelector(`.${CONTAINER_CLASS_NAME}`) || create({ className: CONTAINER_CLASS_NAME });
+    return append(ReactBackdrop, inProps, element);
+  }
 
   constructor(inProps) {
     super(inProps);
@@ -34,7 +40,6 @@ export default class extends Component {
       hidden: !value
     };
     this._callback = noop;
-    this._container = container;
   }
 
   componentWillReceiveProps(inProps) {
@@ -46,6 +51,10 @@ export default class extends Component {
         this.setState({ value });
       }
     }
+  }
+
+  componentWillUnmount(){
+    this._callback = null;
   }
 
   then(inCallback) {
@@ -86,7 +95,7 @@ export default class extends Component {
   render() {
     const { className, container, value, position, color, ...props } = this.props;
     const { hidden } = this.state;
-    return ReactDOM.createPortal(
+    return (
       <div
         hidden={hidden}
         data-visible={this.state.value}
@@ -95,8 +104,7 @@ export default class extends Component {
         onClick={this._onClick}
         onAnimationEnd={this._onAnimationEnd}
         className={classNames('webkit-sassui-backdrop react-backdrop', className)}
-        {...props} />,
-      this._container
-    );
+        {...props} />
+    )
   }
 }

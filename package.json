@@ -88,6 +88,7 @@
     "object-assign": "^4.1.1",
     "prop-types": "^15.5.10",
     "react": "^16.3.2",
+    "react-append-to-document": "github:afeiship/react-append-to-document",
     "react-dom": "^16.3.2",
     "webkit-sassui-backdrop": "github:afeiship/webkit-sassui-backdrop"
   }

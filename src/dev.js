@@ -16,6 +16,7 @@ class App extends React.Component{
     window.demo = this;
     window.refs = this.refs;
     window.rc = this.rc = React.createRef();
+    window.ReactBackdrop = ReactBackdrop;
   }
 
   _show = e =>{
