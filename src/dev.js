@@ -1,59 +1,56 @@
 import './dev.scss';
+import ReactBackdrop from './main';
 
-import {ReactBackdrop, ReactBackdropCtrl} from './main';
+/*===example start===*/
+
+// install: npm install afeiship/react-backdrop --save
+// import : import ReactBackdrop from 'react-backdrop'
 
 class App extends React.Component{
+  state = {
+    value: false
+  };
 
-  state={
-    bkVisible:false
+  constructor(props){
+    super(props);
+    window.demo = this;
+    window.refs = this.refs;
+    window.rc = this.rc = React.createRef();
   }
 
-  componentWillMount(){
-    console.log(1234);
-    this._backdrop = ReactBackdropCtrl.createInstance({
-      'data-aaa':'aaa',
-      onTouchStart:function(){
-        console.log('touchstart...');
-      },
-      onClick:function(){
-        ReactBackdropCtrl.hide(()=>{
-          console.log('on hidden..')
-        });
-      }
-    });
-  }
+  _show = e =>{
+    this.setState({ value: true });
+  };
 
-  _click(name){
-    ReactBackdropCtrl.show(function(){
-      console.log('has show...')
-    });
-  }
+  _hide = e =>{
+    this.setState({ value: false });
+  };
 
-  _click1(){
-    console.log(this.state.bkVisible);
-    this.setState({
-      bkVisible:!this.state.bkVisible
-    });
-  }
+  _onChange = e =>{
+    console.log('on change, value is:', e.target.value);
+  };
+
+  _onClick = e =>{
+    console.log(this,'click!');
+  };
 
   render(){
+    const container = document.getElementById('app');
     return (
-      <div className="hello-backdrop">
-
-        <button onClick={this._click.bind(this,'btn')}>Show ctrl backdrop</button>
-        <button onClick={this._click1.bind(this,'btn2')}>Toggle inline backdrop</button>
-
-        <div className="rel">
-          <ReactBackdrop onClick={()=>{
-            this.refs.bk.hide();
-          }} ref='bk' visible={this.state.bkVisible} />
-        </div>
+      <div className="hello-react-backdrop" id="test-container">
+        <ReactBackdrop
+        onChange={this._onChange}
+        value={this.state.value}
+        container={container}
+        ref={this.rc} />
+        <button onClick={this._show}>Show</button>
       </div>
     );
   }
 }
+/*===example end===*/
 
 ReactDOM.render(
-    <App cssClass="test-bg" />,
+    <App />,
     document.getElementById('app')
 );

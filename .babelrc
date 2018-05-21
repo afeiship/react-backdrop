@@ -5,11 +5,10 @@
     "stage-0"
   ],
   "plugins": [
-    "transform-array-from",
+    "transform-decorators-legacy",
     "transform-class-properties",
     "transform-es2015-spread",
-    "transform-object-rest-spread",
-    "transform-decorators-legacy"
+    "transform-object-rest-spread"
   ],
   "ignore": [
   ]

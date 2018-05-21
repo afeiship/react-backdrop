@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const base = require('./webpack.base.conf')
 const config = require('../config')
+
 base.entry = {
   lib: './src/main.js'
 }

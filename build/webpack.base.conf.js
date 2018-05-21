@@ -9,16 +9,16 @@ var env = process.env.NODE_ENV;
 var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
 var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
 var useCssSourceMap = cssSourceMapDev || cssSourceMapProd;
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 var externals = process.env.NODE_ENV === 'production' ? {
-  react: 'react',
-  classnames: 'classnames',
+  'react': 'react',
+  'classnames': 'classnames',
   'react-dom': 'react-dom',
-  'noop': 'noop',
-  'prop-types': 'prop-types',
-  'react-visible': 'react-visible',
-  'array-from': 'array-from',
-  'react-append-to-document': 'react-append-to-document',
+  'noop':'noop',
+  'next-return-event':'next-return-event',
+  'webkit-sassui-backdrop':'webkit-sassui-backdrop',
+  'object-assign':'object-assign',
+  'prop-types':'prop-types',
 } : {};
 
 module.exports = {
@@ -31,22 +31,32 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.scss'],
+    extensions: ['', '.js', '.jsx','.scss'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
+      React: path.resolve(__dirname, '../node_modules/react'),
+      ReactDOM: path.resolve(__dirname, '../node_modules/react-dom'),
+      'src': path.resolve(__dirname, '../src'),
+      'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components')
     }
   },
+  plugins:[
+    new CopyWebpackPlugin([
+      {
+        from:'./src/components/style.scss',
+        to:'./style.scss',
+      }
+    ]),
+    new webpack.ProvidePlugin({
+        'React': 'react',
+        'ReactDOM': 'react-dom'
+    }),
+  ],
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
   externals: externals,
-  plugins:[
-    new webpack.ProvidePlugin({
-      'React': 'react',
-      'ReactDOM': 'react-dom'
-    })
-  ],
   module: {
     loaders: [{
       test: /\.js$/,
@@ -69,7 +79,7 @@ module.exports = {
       loader: 'html-loader'
     }, {
       test: /\.js|jsx$/,
-      loaders: ["react-hot-loader/webpack"],
+      loaders: ["react-hot-loader/webpack",'babel-loader?presets[]=react,presets[]=es2015'],
       include: path.join(__dirname, 'js')
     }]
   }
