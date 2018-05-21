@@ -10,15 +10,13 @@
     onChange: PropTypes.func,
     position: PropTypes.string,
     color: PropTypes.string,
-    container: PropTypes.object,
   };
 
   static defaultProps = {
     value: false,
     onChange: noop,
     position: 'fixed',
-    color: 'black',
-    container: document.body
+    color: 'black'
   };
   
 ```
@@ -57,6 +55,7 @@ class App extends React.Component{
     window.demo = this;
     window.refs = this.refs;
     window.rc = this.rc = React.createRef();
+    window.ReactBackdrop = ReactBackdrop;
   }
 
   _show = e =>{

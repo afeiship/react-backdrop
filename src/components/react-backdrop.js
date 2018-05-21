@@ -45,11 +45,7 @@ export default class ReactBackdrop extends Component {
   componentWillReceiveProps(inProps) {
     const { value } = inProps;
     if (value !== this.state.value) {
-      if (value) {
-        this.setState({ hidden: false, value });
-      } else {
-        this.setState({ value });
-      }
+      this.visible(value);
     }
   }
 
