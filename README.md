@@ -1,96 +1,66 @@
 # react-backdrop
-> Backdrop for react
+> Backdrop for react.
 
-## properties:
-```javascript
-
-  static propTypes = {
-    className: PropTypes.string,
-    value: PropTypes.bool,
-    onChange: PropTypes.func,
-    position: PropTypes.string,
-    color: PropTypes.string,
-  };
-
-  static defaultProps = {
-    value: false,
-    onChange: noop,
-    position: 'fixed',
-    color: 'black'
-  };
-  
+## installation
+```shell
+npm install -S @feizheng/react-backdrop
 ```
 
-## install && import:
-```bash
-npm install --save afeiship/react-backdrop --registry=https://registry.npm.taobao.org
+## update
+```shell
+npm update @feizheng/react-backdrop
 ```
 
-```js
-import ReactBackdrop from 'react-backdrop';
-```
-
-```scss
-// customize your styles:
-$react-backdrop-options:(
-);
-
-@import 'node_modules/react-backdrop/dist/style.scss';
-```
+## properties
+| Name      | Type   | Default | Description                           |
+| --------- | ------ | ------- | ------------------------------------- |
+| className | string | -       | The extended className for component. |
+| value     | bool   | false   | Default value.                        |
+| onChange  | func   | noop    | The change handler.                   |
+| fixed     | bool   | false   | If style.position is fixed.           |
 
 
-## usage:
-```jsx
+## usage
+1. import css
+  ```scss
+  @import "~@feizheng/react-backdrop/dist/style.scss";
+  @import "~@feizheng/webkit-sassui-backdrop";
 
-// install: npm install afeiship/react-backdrop --save
-// import : import ReactBackdrop from 'react-backdrop'
+  // customize your styles:
+  $react-backdrop-options: ()
+  ```
+2. import js
+  ```js
+  import ReactBackdrop from '@feizheng/react-backdrop';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import './assets/style.scss';
 
-class App extends React.Component{
-  state = {
-    value: false
-  };
+  class App extends React.Component {
+    state = {
+      visible: false
+    };
 
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.rc = React.createRef();
-    window.ReactBackdrop = ReactBackdrop;
+    click1 = (e) => {
+      this.setState({ visible: !this.state.visible });
+    };
+
+    render() {
+      const { visible } = this.state;
+      return (
+        <div className="app-container">
+          <button className="button" onClick={this.click1}>
+            Toggle
+          </button>
+          <ReactBackdrop value={visible} />
+        </div>
+      );
+    }
   }
 
-  _show = e =>{
-    this.setState({ value: true });
-  };
+  ReactDOM.render(<App />, document.getElementById('app'));
 
-  _hide = e =>{
-    this.setState({ value: false });
-  };
+  ```
 
-  _onChange = e =>{
-    console.log('on change, value is:', e.target.value);
-  };
-
-  _onClick = e =>{
-    console.log(this,'click!');
-  };
-
-  render(){
-    const container = document.getElementById('app');
-    return (
-      <div className="hello-react-backdrop" id="test-container">
-        <ReactBackdrop
-        onChange={this._onChange}
-        value={this.state.value}
-        container={container}
-        ref={this.rc} />
-        <button onClick={this._show}>Show</button>
-      </div>
-    );
-  }
-}
-
-```
-
-## resouces:
-+ https://codepen.io/chrisbuttery/pen/cxnmJ
-+ https://ask.helplib.com/css/post_45874
+## documentation
+- https://afeiship.github.io/react-backdrop/

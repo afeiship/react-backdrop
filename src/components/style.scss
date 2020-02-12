@@ -1,9 +1,4 @@
-$react-backdrop-options:(
+$react-backdrop-options: () !default;
 
-)!default;
-
-
-@import 'node_modules/webkit-sassui-backdrop/dist/webkit-sassui-backdrop.scss';
-
-.react-backdrop{
+.react-backdrop {
 }

@@ -1,2 +1,2 @@
-import ReactBackdrop from 'components/react-backdrop';
+import ReactBackdrop from './components';
 export default ReactBackdrop;
