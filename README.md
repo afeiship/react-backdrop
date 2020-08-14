@@ -12,7 +12,14 @@ npm update @feizheng/react-backdrop
 ```
 
 ## properties
-__GENERATE_DOCS__
+| Name        | Type   | Required | Default | Description                                 |
+| ----------- | ------ | -------- | ------- | ------------------------------------------- |
+| className   | string | false    | -       | The extended className for component.       |
+| value       | bool   | false    | -       | Abstract visible value.                     |
+| onChange    | func   | false    | noop    | The change handler.                         |
+| destroyable | bool   | false    | false   | If element destroyed when visible to false. |
+| fixed       | bool   | false    | false   | If style.position is fixed.                 |
+
 
 ## usage
 1. import css
@@ -25,7 +32,35 @@ __GENERATE_DOCS__
   ```
 2. import js
   ```js
-__GENERATE_DAPP__
+  import ReactBackdrop from '@feizheng/react-backdrop';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
+  import './assets/style.scss';
+
+  class App extends React.Component {
+    state = {
+      visible: false
+    };
+
+    handleClick = (e) => {
+      this.setState({ visible: !this.state.visible });
+    };
+
+    render() {
+      const { visible } = this.state;
+      return (
+        <div className="app-container">
+          <button className="button" onClick={this.handleClick}>
+            Toggle
+          </button>
+          <ReactBackdrop destroyable value={visible} />
+        </div>
+      );
+    }
+  }
+
+  ReactDOM.render(<App />, document.getElementById('app'));
+
   ```
 
 ## documentation
