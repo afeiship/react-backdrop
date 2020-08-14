@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import ReactVisible from '@feizheng/react-visible';
 import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
 
 const CLASS_NAME = 'react-backdrop';
+const positions = ['absolute', 'fixed'];
 
-export default class ReactBackdrop extends Component {
+export default class ReactBackdrop extends ReactVisible {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   static propTypes = {
@@ -16,7 +17,7 @@ export default class ReactBackdrop extends Component {
      */
     className: PropTypes.string,
     /**
-     * Default value.
+     * Abstract visible value.
      */
     value: PropTypes.bool,
     /**
@@ -24,50 +25,39 @@ export default class ReactBackdrop extends Component {
      */
     onChange: PropTypes.func,
     /**
+     * If element destroyed when visible to false.
+     */
+    destroyable: PropTypes.bool,
+    /**
      * If style.position is fixed.
      */
     fixed: PropTypes.bool
   };
 
   static defaultProps = {
-    value: false,
     onChange: noop,
+    destroyable: false,
     fixed: false
   };
 
-  constructor(inProps) {
-    super(inProps);
-    this.handleAnimationEnd = this.handleAnimationEnd.bind(this);
-    this.state = {
-      hidden: !inProps.value
-    };
-  }
-
-  shouldComponentUpdate(inProps) {
-    const { value } = inProps;
-    if (value !== this.props.value && value) {
-      this.setState({ hidden: false });
-    }
-    return true;
-  }
-
-  handleAnimationEnd() {
-    const { value } = this.props;
-    !value && this.setState({ hidden: true });
-  }
-
-  render() {
-    const { className, fixed, value, onChange, style, ...props } = this.props;
+  get visibleElementView() {
+    const {
+      className,
+      fixed,
+      value,
+      onChange,
+      style,
+      destroyable,
+      ...props
+    } = this.props;
     const { hidden } = this.state;
-    const _style = objectAssign(
-      { position: fixed ? 'fixed' : 'absolute' },
-      style
-    );
+    const position = positions[Number(fixed)];
+    const _style = { position, ...style };
 
     return (
       <div
         data-component={CLASS_NAME}
-        data-visible={value}
+        data-visible={this.state.value}
         hidden={hidden}
         className={classNames('webkit-sassui-backdrop', CLASS_NAME, className)}
         style={_style}

@@ -12,12 +12,13 @@ npm update @feizheng/react-backdrop
 ```
 
 ## properties
-| Name      | Type   | Default | Description                           |
-| --------- | ------ | ------- | ------------------------------------- |
-| className | string | -       | The extended className for component. |
-| value     | bool   | false   | Default value.                        |
-| onChange  | func   | noop    | The change handler.                   |
-| fixed     | bool   | false   | If style.position is fixed.           |
+| Name        | Type   | Required | Default | Description                                 |
+| ----------- | ------ | -------- | ------- | ------------------------------------------- |
+| className   | string | false    | -       | The extended className for component.       |
+| value       | bool   | false    | -       | Abstract visible value.                     |
+| onChange    | func   | false    | noop    | The change handler.                         |
+| destroyable | bool   | false    | false   | If element destroyed when visible to false. |
+| fixed       | bool   | false    | false   | If style.position is fixed.                 |
 
 
 ## usage
@@ -41,7 +42,7 @@ npm update @feizheng/react-backdrop
       visible: false
     };
 
-    click1 = (e) => {
+    handleClick = (e) => {
       this.setState({ visible: !this.state.visible });
     };
 
@@ -49,10 +50,10 @@ npm update @feizheng/react-backdrop
       const { visible } = this.state;
       return (
         <div className="app-container">
-          <button className="button" onClick={this.click1}>
+          <button className="button" onClick={this.handleClick}>
             Toggle
           </button>
-          <ReactBackdrop value={visible} />
+          <ReactBackdrop destroyable value={visible} />
         </div>
       );
     }

@@ -8,7 +8,7 @@ class App extends React.Component {
     visible: false
   };
 
-  click1 = (e) => {
+  handleClick = (e) => {
     this.setState({ visible: !this.state.visible });
   };
 
@@ -16,10 +16,10 @@ class App extends React.Component {
     const { visible } = this.state;
     return (
       <div className="app-container">
-        <button className="button" onClick={this.click1}>
+        <button className="button" onClick={this.handleClick}>
           Toggle
         </button>
-        <ReactBackdrop value={visible} />
+        <ReactBackdrop destroyable value={visible} />
       </div>
     );
   }
