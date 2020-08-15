@@ -18,7 +18,7 @@ npm update @feizheng/react-backdrop
 | value       | bool   | false    | -       | Abstract visible value.                     |
 | onChange    | func   | false    | noop    | The change handler.                         |
 | destroyable | bool   | false    | false   | If element destroyed when visible to false. |
-| fixed       | bool   | false    | false   | If style.position is fixed.                 |
+| fixed       | bool   | false    | true    | If style.position is fixed.                 |
 
 
 ## usage
