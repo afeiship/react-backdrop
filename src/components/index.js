@@ -37,7 +37,7 @@ export default class ReactBackdrop extends ReactVisible {
   static defaultProps = {
     onChange: noop,
     destroyable: false,
-    fixed: false
+    fixed: true
   };
 
   get visibleElementView() {
