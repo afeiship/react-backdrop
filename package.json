@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-backdrop",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Backdrop for react.",
   "main": "dist/index.js",
   "scripts": {

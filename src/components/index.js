@@ -20,13 +20,13 @@ export default class ReactBackdrop extends ReactVisible {
     /**
      * If the opacity is 0.
      */
-    transparent: PropTypes.bool,
+    transparent: PropTypes.bool
   };
 
   static defaultProps = {
     ...ReactVisible.defaultProps,
     fixed: true,
-    transparent: false,
+    transparent: false
   };
 
   get visibleElementView() {
@@ -49,7 +49,12 @@ export default class ReactBackdrop extends ReactVisible {
         data-component={CLASS_NAME}
         data-visible={this.state.value}
         hidden={hidden}
-        className={classNames('webkit-sassui-backdrop', CLASS_NAME, className)}
+        className={classNames(
+          'webkit-sassui-backdrop',
+          { 'is-transparent': transparent },
+          CLASS_NAME,
+          className
+        )}
         style={_style}
         onAnimationEnd={this.handleAnimationEnd}
         {...props}
