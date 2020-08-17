@@ -12,13 +12,10 @@ npm update @feizheng/react-backdrop
 ```
 
 ## properties
-| Name        | Type   | Required | Default | Description                                 |
-| ----------- | ------ | -------- | ------- | ------------------------------------------- |
-| className   | string | false    | -       | The extended className for component.       |
-| value       | bool   | false    | -       | Abstract visible value.                     |
-| onChange    | func   | false    | noop    | The change handler.                         |
-| destroyable | bool   | false    | false   | If element destroyed when visible to false. |
-| fixed       | bool   | false    | true    | If style.position is fixed.                 |
+| Name        | Type | Required | Default | Description                 |
+| ----------- | ---- | -------- | ------- | --------------------------- |
+| fixed       | bool | false    | true    | If style.position is fixed. |
+| transparent | bool | false    | false   | If the opacity is 0.        |
 
 
 ## usage

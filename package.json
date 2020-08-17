@@ -4,7 +4,7 @@
   "description": "Backdrop for react.",
   "main": "dist/index.js",
   "scripts": {
-    "predocs": "node build/markdown.js",
+    "markdown": "node build/markdown.js",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --env.type=dev",
     "build": "cross-env NODE_ENV=production webpack -p --env.type=build",
     "release": "cross-env NODE_ENV=production webpack -p --env.type=release",
@@ -70,8 +70,8 @@
   },
   "dependencies": {
     "@feizheng/noop": "^1.0.0",
-    "@feizheng/react-visible": "^1.0.1",
-    "@feizheng/webkit-sassui-backdrop": "^1.0.0",
+    "@feizheng/react-visible": "^1.0.5",
+    "@feizheng/webkit-sassui-backdrop": "^1.0.1",
     "@feizheng/webpack-lib-kits": "^1.1.21",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"

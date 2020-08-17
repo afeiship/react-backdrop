@@ -12,32 +12,21 @@ export default class ReactBackdrop extends ReactVisible {
   static displayName = CLASS_NAME;
   static version = '__VERSION__';
   static propTypes = {
-    /**
-     * The extended className for component.
-     */
-    className: PropTypes.string,
-    /**
-     * Abstract visible value.
-     */
-    value: PropTypes.bool,
-    /**
-     * The change handler.
-     */
-    onChange: PropTypes.func,
-    /**
-     * If element destroyed when visible to false.
-     */
-    destroyable: PropTypes.bool,
+    ...ReactVisible.propTypes,
     /**
      * If style.position is fixed.
      */
-    fixed: PropTypes.bool
+    fixed: PropTypes.bool,
+    /**
+     * If the opacity is 0.
+     */
+    transparent: PropTypes.bool,
   };
 
   static defaultProps = {
-    onChange: noop,
-    destroyable: false,
-    fixed: true
+    ...ReactVisible.defaultProps,
+    fixed: true,
+    transparent: false,
   };
 
   get visibleElementView() {
