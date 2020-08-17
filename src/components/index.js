@@ -37,6 +37,7 @@ export default class ReactBackdrop extends ReactVisible {
       onChange,
       style,
       destroyable,
+      transparent,
       ...props
     } = this.props;
     const { hidden } = this.state;
