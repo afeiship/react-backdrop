@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/react-backdrop",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Backdrop for react.",
   "main": "dist/index.js",
   "scripts": {
@@ -70,8 +70,8 @@
   },
   "dependencies": {
     "@feizheng/noop": "^1.0.0",
-    "@feizheng/react-visible": "^1.0.5",
-    "@feizheng/webkit-sassui-backdrop": "^1.0.1",
+    "@feizheng/react-visible": "^1.0.6",
+    "@feizheng/webkit-sassui-backdrop": "^1.0.2",
     "@feizheng/webpack-lib-kits": "^1.1.21",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2"

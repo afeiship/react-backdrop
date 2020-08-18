@@ -37,6 +37,7 @@ export default class ReactBackdrop extends ReactVisible {
       onChange,
       style,
       destroyable,
+      rootable,
       transparent,
       onPresent,
       onDismiss,
