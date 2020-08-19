@@ -47,7 +47,7 @@
     "@babel/register": "^7.10.5",
     "@feizheng/next-replace-in-file": "^1.0.1",
     "@feizheng/rake-git": "^1.2.1",
-    "@feizheng/react-markdown-props": "^1.2.2",
+    "@feizheng/react-markdown-props": "^1.2.3",
     "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
@@ -62,7 +62,7 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.1.1"
+    "webpack-merge": "^5.1.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "@feizheng/noop": "^1.0.0",
-    "@feizheng/react-visible": "^1.0.6",
+    "@feizheng/react-visible": "^1.0.10",
     "@feizheng/webkit-sassui-backdrop": "^1.0.2",
     "@feizheng/webpack-lib-kits": "^1.1.21",
     "classnames": "^2.2.6",

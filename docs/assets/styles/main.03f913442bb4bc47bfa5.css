@@ -1,9 +1,0 @@
-*{margin:0;padding:0}html,body,#app,.app-container{height:100%}/*!
- * name: @feizheng/webkit-sassui-backdrop
- * description: Webkit sass ui module for overlay/mask/backdrop.
- * homepage: https://github.com/afeiship/webkit-sassui-backdrop
- * version: 1.0.1
- * date: 2020-08-17T10:59:50.784Z
- * license: MIT
- */.webkit-sassui-backdrop{top:0;right:0;bottom:0;left:0}.webkit-sassui-backdrop.is-transparent{opacity:0.01}@-webkit-keyframes webkit-sassui-backdrop-fade-in{to{background:rgba(0,0,0,0.4)}}@keyframes webkit-sassui-backdrop-fade-in{to{background:rgba(0,0,0,0.4)}}@-webkit-keyframes webkit-sassui-backdrop-fade-out{from{background:rgba(0,0,0,0.4)}to{background:rgba(0,0,0,0)}}@keyframes webkit-sassui-backdrop-fade-out{from{background:rgba(0,0,0,0.4)}to{background:rgba(0,0,0,0)}}.webkit-sassui-backdrop.visible-true,.webkit-sassui-backdrop[data-visible=true]{background:rgba(0,0,0,0);-webkit-animation:webkit-sassui-backdrop-fade-in 300ms ease-in forwards;animation:webkit-sassui-backdrop-fade-in 300ms ease-in forwards}.webkit-sassui-backdrop,.webkit-sassui-backdrop.visible-false,.webkit-sassui-backdrop[data-visible=false]{-webkit-animation:webkit-sassui-backdrop-fade-out 300ms ease-in forwards;animation:webkit-sassui-backdrop-fade-out 300ms ease-in forwards}.webkit-sassui-backdrop.position-fixed,.webkit-sassui-backdrop[data-position=fixed]{position:fixed}.webkit-sassui-backdrop.position-absolute,.webkit-sassui-backdrop[data-position=absolute]{position:absolute}.app-container{padding:50px;-webkit-box-sizing:border-box;box-sizing:border-box}.app-container .button{position:relative;z-index:100;background:#3cc51f;width:100%;display:block;margin-bottom:10px;border-radius:10px;color:#fff;padding:20px;border:none}.app-container .button:active{background:#2f9918}.app-container .button:focus{outline:none}
-
