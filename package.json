@@ -20,17 +20,10 @@
     "url": "git+https://github.com/afeiship/react-backdrop.git"
   },
   "keywords": [
-    "boilerplate",
     "react",
-    "component",
-    "cra",
-    "template",
-    "webpack",
-    "sass",
-    "scss",
-    "docs",
-    "service-worker",
-    "sw"
+    "backdrop",
+    "overlay",
+    "mask"
   ],
   "author": "afei",
   "license": "MIT",

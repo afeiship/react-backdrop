@@ -12,41 +12,46 @@ npm install -S @jswork/react-backdrop
 ```
 
 ## properties
-| Name      | Type   | Required | Default | Description                           |
-| --------- | ------ | -------- | ------- | ------------------------------------- |
-| className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | The changed value.                    |
-| onChange  | func   | false    | noop    | The change handler.                   |
+| Name        | Type | Required | Default | Description                 |
+| ----------- | ---- | -------- | ------- | --------------------------- |
+| fixed       | bool | false    | true    | If style.position is fixed. |
+| transparent | bool | false    | false   | If the opacity is 0.        |
 
 
 ## usage
 1. import css
   ```scss
-  @import "~@jswork/react-backdrop/dist/style.css";
-
-  // or use sass
   @import "~@jswork/react-backdrop/dist/style.scss";
+  @import "~@jswork/wsui-backdrop";
 
   // customize your styles:
   $react-backdrop-options: ()
   ```
 2. import js
   ```js
-  import ReactDemokit from '@jswork/react-demokit';
-  import React from 'react';
-  import ReactDOM from 'react-dom';
   import ReactBackdrop from '@jswork/react-backdrop';
+  import ReactDOM from 'react-dom';
+  import React from 'react';
   import './assets/style.scss';
 
   class App extends React.Component {
+    state = {
+      visible: false
+    };
+
+    handleClick = (e) => {
+      this.setState({ visible: !this.state.visible });
+    };
+
     render() {
+      const { visible } = this.state;
       return (
-        <ReactDemokit
-          className="p-3 app-container"
-          url="https://github.com/afeiship/react-backdrop">
-          <ReactBackdrop className="mb-5 has-text-white" />
-          <button className="button is-primary is-fullwidth">Start~</button>
-        </ReactDemokit>
+        <div className="app-container">
+          <button className="button" onClick={this.handleClick}>
+            Toggle
+          </button>
+          <ReactBackdrop destroyable value={visible} />
+        </div>
       );
     }
   }
