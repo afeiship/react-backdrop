@@ -8,55 +8,45 @@
 
 ## installation
 ```shell
-npm install -S @feizheng/react-backdrop
-```
-
-## update
-```shell
-npm update @feizheng/react-backdrop
+npm install -S @jswork/react-backdrop
 ```
 
 ## properties
-| Name        | Type | Required | Default | Description                 |
-| ----------- | ---- | -------- | ------- | --------------------------- |
-| fixed       | bool | false    | true    | If style.position is fixed. |
-| transparent | bool | false    | false   | If the opacity is 0.        |
+| Name      | Type   | Required | Default | Description                           |
+| --------- | ------ | -------- | ------- | ------------------------------------- |
+| className | string | false    | -       | The extended className for component. |
+| value     | object | false    | null    | The changed value.                    |
+| onChange  | func   | false    | noop    | The change handler.                   |
 
 
 ## usage
 1. import css
   ```scss
-  @import "~@feizheng/react-backdrop/dist/style.scss";
-  @import "~@feizheng/webkit-sassui-backdrop";
+  @import "~@jswork/react-backdrop/dist/style.css";
+
+  // or use sass
+  @import "~@jswork/react-backdrop/dist/style.scss";
 
   // customize your styles:
   $react-backdrop-options: ()
   ```
 2. import js
   ```js
-  import ReactBackdrop from '@feizheng/react-backdrop';
-  import ReactDOM from 'react-dom';
+  import ReactDemokit from '@jswork/react-demokit';
   import React from 'react';
+  import ReactDOM from 'react-dom';
+  import ReactBackdrop from '@jswork/react-backdrop';
   import './assets/style.scss';
 
   class App extends React.Component {
-    state = {
-      visible: false
-    };
-
-    handleClick = (e) => {
-      this.setState({ visible: !this.state.visible });
-    };
-
     render() {
-      const { visible } = this.state;
       return (
-        <div className="app-container">
-          <button className="button" onClick={this.handleClick}>
-            Toggle
-          </button>
-          <ReactBackdrop destroyable value={visible} />
-        </div>
+        <ReactDemokit
+          className="p-3 app-container"
+          url="https://github.com/afeiship/react-backdrop">
+          <ReactBackdrop className="mb-5 has-text-white" />
+          <button className="button is-primary is-fullwidth">Start~</button>
+        </ReactDemokit>
       );
     }
   }
@@ -68,17 +58,18 @@ npm update @feizheng/react-backdrop
 ## documentation
 - https://afeiship.github.io/react-backdrop/
 
+
 ## license
 Code released under [the MIT license](https://github.com/afeiship/react-backdrop/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@feizheng/react-backdrop
-[version-url]: https://npmjs.org/package/@feizheng/react-backdrop
+[version-image]: https://img.shields.io/npm/v/@jswork/react-backdrop
+[version-url]: https://npmjs.org/package/@jswork/react-backdrop
 
-[license-image]: https://img.shields.io/npm/l/@feizheng/react-backdrop
+[license-image]: https://img.shields.io/npm/l/@jswork/react-backdrop
 [license-url]: https://github.com/afeiship/react-backdrop/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@feizheng/react-backdrop
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-backdrop
 [size-url]: https://github.com/afeiship/react-backdrop/blob/master/dist/react-backdrop.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@feizheng/react-backdrop
-[download-url]: https://www.npmjs.com/package/@feizheng/react-backdrop
+[download-image]: https://img.shields.io/npm/dm/@jswork/react-backdrop
+[download-url]: https://www.npmjs.com/package/@jswork/react-backdrop

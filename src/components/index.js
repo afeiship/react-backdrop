@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import ReactVisible from '@feizheng/react-visible';
-import noop from '@feizheng/noop';
+import ReactVisible from '@jswork/react-visible';
+import noop from '@jswork/noop';
 
 const CLASS_NAME = 'react-backdrop';
 const positions = ['absolute', 'fixed'];
@@ -53,7 +53,7 @@ export default class ReactBackdrop extends ReactVisible {
         data-visible={this.state.value}
         hidden={hidden}
         className={classNames(
-          'webkit-sassui-backdrop',
+          'wsui-backdrop',
           { 'is-transparent': transparent },
           CLASS_NAME,
           className
