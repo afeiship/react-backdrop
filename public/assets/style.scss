@@ -6,6 +6,9 @@
 @import "~@jswork/wsui-backdrop";
 
 .app-container {
+  .is-body {
+    background: #fff;
+  }
   .button {
     position: relative;
     z-index: 100;
