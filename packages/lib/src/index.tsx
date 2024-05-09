@@ -21,6 +21,16 @@ export type ReactBackdropProps = {
    */
   fixed?: boolean;
   /**
+   * The backdrop blur value.
+   * @default 0
+   */
+  blur?: number;
+  /**
+   * The backdrop opacity value.
+   * @default 0.1
+   */
+  opacity?: number;
+  /**
    * The z-index of backdrop.
    * @default 1000
    */
@@ -34,10 +44,21 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
     fixed: false,
     visible: false,
     zIndex: 1000,
+    blur: 0,
+    opacity: 0.1,
   };
 
   private elementRef = createRef<HTMLDivElement>();
   private ve: VisibleElement;
+
+  get style() {
+    const { blur, opacity, style } = this.props;
+    return {
+      '--react-backdrop-blur': `${blur}px`,
+      '--react-backdrop-opacity': `${opacity}`,
+      ...style,
+    };
+  }
 
   componentDidMount() {
     this.ve = new VisibleElement(this.elementRef.current!);
@@ -50,7 +71,7 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
   }
 
   render() {
-    const { className, visible, zIndex, fixed, ...rest } = this.props;
+    const { className, visible, zIndex, fixed, style, blur, opacity, ...rest } = this.props;
     return (
       <div
         ref={this.elementRef}
@@ -58,6 +79,7 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
         data-fixed={fixed}
         data-component={CLASS_NAME}
         className={cx(CLASS_NAME, className)}
+        style={{ zIndex, ...this.style }}
         {...rest}
       />
     );
