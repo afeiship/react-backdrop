@@ -1,5 +1,5 @@
 .react-backdrop {
-  --react-backdrop-opacity: 0.5;
+  --react-backdrop-opacity: 0.1;
   --react-backdrop-z-index: 1000;
   --react-backdrop-blur: 2px;
 
@@ -7,9 +7,13 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, var(--backdrop-opacity));
-  backdrop-filter: blur(var(--backdrop-blur));
-  z-index: var(--backdrop-z-index);
+  background-color: rgba(0, 0, 0, var(--react-backdrop-opacity));
+  backdrop-filter: blur(var(--react-backdrop-blur));
+  z-index: var(--react-backdrop-z-index);
+
+  &[hidden] {
+    display: none;
+  }
 
   &[data-fixed="true"] {
     position: fixed;
@@ -17,5 +21,29 @@
 
   &[data-fixed="false"] {
     position: absolute;
+  }
+
+  &[data-visible="true"] {
+    animation: show-backdrop 0.3s;
+  }
+
+  &[data-visible="false"] {
+    animation: hide-backdrop 0.3s;
+  }
+
+  @keyframes show-backdrop {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hide-backdrop {
+    to {
+      opacity: 0;
+    }
   }
 }
