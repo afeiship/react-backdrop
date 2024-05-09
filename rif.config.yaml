@@ -1,0 +1,17 @@
+name: react-component-library
+files:
+  - 'packages/**/*.js'
+  - 'packages/**/*.json'
+  - 'packages/**/*.tsx'
+  - 'packages/**/*.md'
+  - 'packages/**/*.scss'
+  - 'scripts/*'
+  - '.*'
+  - '*'
+  - '!node_modules'
+  - '!rif.config.yaml'
+replacements:
+  - from: /react-component-library-description/g
+    to: Backdrop for react.
+  - from: /react-component-library/g
+    to: ${PROJECT_NAME}
