@@ -61,7 +61,9 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
   }
 
   componentDidMount() {
+    const { visible } = this.props;
     this.ve = new VisibleElement(this.elementRef.current!);
+    this.ve.to(visible!);
   }
 
   shouldComponentUpdate(nextProps: ReactBackdropProps) {
