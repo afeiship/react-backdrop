@@ -1,6 +1,7 @@
 // import noop from '@jswork/noop';
 import cx from 'classnames';
-import React, { ReactNode, Component, HTMLAttributes } from 'react';
+import React, { Component, HTMLAttributes } from 'react';
+import VisibleElement from '@jswork/visible-element';
 
 const CLASS_NAME = 'react-backdrop';
 // const uuid = () => Math.random().toString(36).substring(2, 9);
@@ -11,9 +12,10 @@ export type ReactBackdropProps = {
    */
   className?: string;
   /**
-   * The children element.
+   * The z-index of backdrop.
+   * @default 1000
    */
-  children?: ReactNode;
+  zIndex?: number;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default class ReactBackdrop extends Component<ReactBackdropProps> {
@@ -22,11 +24,9 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
   static defaultProps = {};
 
   render() {
-    const { className, children, ...rest } = this.props;
+    const { className, ...rest } = this.props;
     return (
-      <div data-component={CLASS_NAME} className={cx(CLASS_NAME, className)} {...rest}>
-        {children}
-      </div>
+      <div data-component={CLASS_NAME} className={cx(CLASS_NAME, className)} {...rest} />
     );
   }
 }

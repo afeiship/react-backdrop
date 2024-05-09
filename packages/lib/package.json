@@ -24,6 +24,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@jswork/visible-element": "^1.0.5",
     "classnames": "^2.5.1"
   },
   "publishConfig": {

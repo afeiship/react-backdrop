@@ -16,8 +16,8 @@
   "devDependencies": {
     "@jswork/next": "^1.2.2",
     "@jswork/next-replace-in-file": "^1.0.0",
-    "@jswork/presets-tailwind": "^1.0.15",
-    "@jswork/react-backdrop": "^1.0.0",
+    "@jswork/presets-tailwind": "^1.0.37",
+    "@jswork/react-backdrop": "^1.0.1",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
