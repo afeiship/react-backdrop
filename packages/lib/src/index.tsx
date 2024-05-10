@@ -49,7 +49,7 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
   };
 
   private elementRef = createRef<HTMLDivElement>();
-  private ve: VisibleElement;
+  private ve?: VisibleElement;
 
   get style() {
     const { blur, opacity, style } = this.props;
