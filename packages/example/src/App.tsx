@@ -1,10 +1,10 @@
-import Backdrop from '../../lib/src';
+import { useState } from 'react';
+import Backdrop from '@jswork/react-backdrop/src';
 import './index.css';
-import '../../lib/src/style.scss';
-import React from 'react';
+import '@jswork/react-backdrop/src/style.scss';
 
 function App() {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = useState(false);
   return (
     <div className="m-10 relative p-4 shadow bg-gray-100 text-gray-800 hover:shadow-md transition-all">
       <h1>react-backdrop</h1>
