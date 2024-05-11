@@ -1,4 +1,4 @@
-# react-drawer
+# react-backdrop
 > Drawer for react.
 
 [![version][version-image]][version-url]
@@ -8,16 +8,16 @@
 
 ## installation
 ```shell
-npm install -S @jswork/react-drawer
+npm install -S @jswork/react-backdrop
 ```
 
 ## usage
 1. import css
   ```scss
-  @import "~@jswork/react-drawer/dist/style.css";
+  @import "~@jswork/react-backdrop/dist/style.css";
 
   // or use sass
-  @import "~@jswork/react-drawer/dist/style.scss";
+  @import "~@jswork/react-backdrop/dist/style.scss";
   ```
 2. import js
   ```js
@@ -49,19 +49,19 @@ npm install -S @jswork/react-drawer
   ```
 
 ## preview
-- https://afeiship.github.io/react-drawer/
+- https://afeiship.github.io/react-backdrop/
 
 ## license
-Code released under [the MIT license](https://github.com/afeiship/react-drawer/blob/master/LICENSE.txt).
+Code released under [the MIT license](https://github.com/afeiship/react-backdrop/blob/master/LICENSE.txt).
 
-[version-image]: https://img.shields.io/npm/v/@jswork/react-drawer
-[version-url]: https://npmjs.org/package/@jswork/react-drawer
+[version-image]: https://img.shields.io/npm/v/@jswork/react-backdrop
+[version-url]: https://npmjs.org/package/@jswork/react-backdrop
 
-[license-image]: https://img.shields.io/npm/l/@jswork/react-drawer
-[license-url]: https://github.com/afeiship/react-drawer/blob/master/LICENSE.txt
+[license-image]: https://img.shields.io/npm/l/@jswork/react-backdrop
+[license-url]: https://github.com/afeiship/react-backdrop/blob/master/LICENSE.txt
 
-[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-drawer
-[size-url]: https://github.com/afeiship/react-drawer/blob/master/dist/react-drawer.min.js
+[size-image]: https://img.shields.io/bundlephobia/minzip/@jswork/react-backdrop
+[size-url]: https://github.com/afeiship/react-backdrop/blob/master/dist/react-backdrop.min.js
 
-[download-image]: https://img.shields.io/npm/dm/@jswork/react-drawer
-[download-url]: https://www.npmjs.com/package/@jswork/react-drawer
+[download-image]: https://img.shields.io/npm/dm/@jswork/react-backdrop
+[download-url]: https://www.npmjs.com/package/@jswork/react-backdrop
