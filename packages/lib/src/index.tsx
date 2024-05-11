@@ -1,6 +1,6 @@
 // import noop from '@jswork/noop';
 import cx from 'classnames';
-import { createRef, Component, HTMLAttributes } from 'react';
+import React, { createRef, Component, HTMLAttributes } from 'react';
 import VisibleElement from '@jswork/visible-element';
 
 const CLASS_NAME = 'react-backdrop';
