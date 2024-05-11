@@ -52,10 +52,11 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
   private ve?: VisibleElement;
 
   get style() {
-    const { blur, opacity, style } = this.props;
+    const { blur, opacity, style, zIndex } = this.props;
     return {
       '--react-backdrop-blur': `${blur}px`,
       '--react-backdrop-opacity': `${opacity}`,
+      '--react-backdrop-z-index': zIndex,
       ...style,
     };
   }
@@ -81,7 +82,7 @@ export default class ReactBackdrop extends Component<ReactBackdropProps> {
         data-fixed={fixed}
         data-component={CLASS_NAME}
         className={cx(CLASS_NAME, className)}
-        style={{ zIndex, ...this.style }}
+        style={this.style}
         {...rest}
       />
     );
