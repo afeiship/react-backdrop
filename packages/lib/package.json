@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsup",
     "postbuild": "postsass -s src/style.scss -d dist/style.css -c",
-    "release": "release-it --ci"
+    "release": "release-it"
   },
   "devDependencies": {
     "@jswork/visible-element": "^1.0.9",
