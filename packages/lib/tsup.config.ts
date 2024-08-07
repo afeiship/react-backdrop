@@ -13,7 +13,7 @@ export default defineConfig({
   splitting: true,
   target: 'es6',
   bundle: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom','classnames','@jswork/visible-element'],
   outExtension({ format }) {
     return {
       js: `.${format}.js`,
